@@ -1,0 +1,13 @@
+.Logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+    user-select: none;
+}
+
+.Logo .name {
+    font-size: 2rem;
+}

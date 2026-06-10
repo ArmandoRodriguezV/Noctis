@@ -1,0 +1,49 @@
+.Notification {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .message {
+        color: #cecece;
+    }
+
+    .icn {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.Notification.err {
+    border-radius: 10px;
+    border: 1px solid #632424;
+    background: linear-gradient(31deg, #141414 50%, #ab3d3d 100%);
+
+    .icn {
+        color: #cd7f7f;
+    }
+}
+
+.Notification.suc {
+    border-radius: 10px;
+    border: 1px solid #326022;
+    background: linear-gradient(31deg, #141414 50%, #59ab3d 100%);
+
+    .icn {
+        color: #abdb9b;
+    }
+}
+
+.Notification.war {
+    border-radius: 10px;
+    border: 1px solid #625d24;
+    background: linear-gradient(31deg, #141414 50%, #aba23d 100%);
+
+    .icn {
+        color: #e0da98;
+    }
+}

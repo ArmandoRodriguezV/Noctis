@@ -1,0 +1,19 @@
+.IconBtn {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #181818;
+    border: #505050 1px solid;
+    color: #505050;
+    transition: .2s;
+}
+
+.IconBtn:hover {
+    background: #1e1e1e;
+    border: #747474 1px solid;
+    color: #747474;
+
+}

@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Mulish";
+  src: url("../src/assets/Mulish.ttf");
+}
+
+* {
+  font-family: "Mulish";
+  margin: 0;
+  padding: 0;
+}
+
+/* Page desing */
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cdcdcd;
+  background: #101010;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container-1 {
+  border-radius: 10px;
+  border: 1px solid #505050;
+  background: linear-gradient(31deg, #141414 50%, #282828 100%);
+}

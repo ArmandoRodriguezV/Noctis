@@ -1,0 +1,13 @@
+.Area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(25% - 40px);
+    height: calc(100% - 40px);
+    z-index: 1000;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
