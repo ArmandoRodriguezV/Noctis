@@ -29,7 +29,7 @@ export class UserController {
 
             if (!session) return res.status(401).json(allResponses.warning("Credenciales invalidas", 401))
 
-            res.status(200).json(allResponses.success("Login", session));
+            res.status(200).json(allResponses.success(`Bienvenido!`, session));
         } catch (err) {
             res.status(500).json(allResponses.error((err as Error).message));
         }

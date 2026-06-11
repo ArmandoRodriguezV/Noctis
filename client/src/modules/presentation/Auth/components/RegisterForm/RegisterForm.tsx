@@ -1,17 +1,12 @@
 import './RegisterForm.css';
 import { useForm } from 'react-hook-form';
-import { IoClose } from "react-icons/io5";
 import Input from '../../../../../shared/components/atoms/Input/Input';
 import FormBtn from '../../../../../shared/components/atoms/FormBtn/FormBtn';
 import Logo from '../../../../../shared/components/molecules/Logo/Logo';
-import IconBtn from '../../../../../shared/components/atoms/IconBtn/IconBtn';
 import useCreateUser from '../../hooks/useCreateUser';
+import { Router } from '../../../../../shared/routes/Routes';
 
-interface IRegisterForm {
-    onClose: () => void;
-}
-
-export default function RegisterForm(props: IRegisterForm) {
+export default function RegisterForm() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { createNewUser, load } = useCreateUser();
 
@@ -22,17 +17,13 @@ export default function RegisterForm(props: IRegisterForm) {
             password: e.pass
         }
 
-        const res = await createNewUser(dto);
-        if (res?.status === 200) {
-            props.onClose();
-        }
+        await createNewUser(dto);
     }
 
     const password = watch("pass");
 
     return (
         <form onSubmit={handleSubmit(handle)} className='RegisterForm container-1'>
-            <IconBtn icon={<IoClose />} customClass='closed' onClick={props.onClose} />
             <Logo />
             <Input
                 type='text' label='Nombre de usuario'
@@ -80,7 +71,8 @@ export default function RegisterForm(props: IRegisterForm) {
                 })}
                 error={errors.conf}
             />
-            <FormBtn text='Crear' isLoad={load}/>
+            <p className='sub1'>¿Ya tienes una cuenta? <a href={Router.LOGIN}>Ingresa aquí</a></p>
+            <FormBtn text='Crear' isLoad={load} />
         </form>
     );
 }

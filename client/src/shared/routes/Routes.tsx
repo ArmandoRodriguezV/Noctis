@@ -1,7 +1,10 @@
 import { createBrowserRouter, Outlet } from 'react-router-dom';
-import Home from '../../modules/presentation/Home/pages/Home';
 import Area from '../components/molecules/Area/Area';
 import { NotificationsProvider } from '../context/NotificationCtx';
+import Login from '../../modules/presentation/Auth/pages/Login/Login';
+import Register from '../../modules/presentation/Auth/pages/Register/Register';
+import Redirect from './Redirect';
+import Home from '../../modules/presentation/Home/pages/Home';
 
 function RootLayout() {
     return (
@@ -15,15 +18,25 @@ function RootLayout() {
 }
 
 export class Router {
-    static HOME = "/";
+    static LOGIN = "/";
+    static REGISTER = "/register";
+    static HOME = "/home"
 
     static router = createBrowserRouter([
         {
             element: <RootLayout />,
             children: [
                 {
+                    path: Router.LOGIN,
+                    element: <Login />
+                },
+                {
+                    path: Router.REGISTER,
+                    element: <Register />
+                },
+                {
                     path: Router.HOME,
-                    element: <Home />
+                    element: <Redirect child={<Home />} />
                 }
             ]
         }

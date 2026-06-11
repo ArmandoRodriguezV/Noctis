@@ -14,4 +14,14 @@ export class UserApiRepository implements UserRepository {
             return err as ApiResponse<any>;
         }
     }
+
+    async loginUser(email: string, password: string): Promise<ApiResponse<Session>> {
+        try {
+            const res = await api.post<ApiResponse<Session>>("/user/login", { email, password });
+            if (res.data.content?.token) setToken(res.data.content?.token);
+            return res.data;
+        } catch(err) {
+            return err as ApiResponse<any>;
+        }
+    }
 }

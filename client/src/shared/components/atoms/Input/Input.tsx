@@ -19,7 +19,7 @@ export default function Input(props: IInput) {
     
     const handle = () => {
         setShow(!show)
-        setType(!show ? "text" : "password")
+        setType(show ? "text" : "password")
     }
 
     const existError = props.error;
@@ -37,7 +37,7 @@ export default function Input(props: IInput) {
                 {
                     isPassword &&
                     <div className='show' onClick={handle}>
-                        {show ? <FaRegEye /> : <FaRegEyeSlash />}
+                        {show ? <FaRegEyeSlash /> : <FaRegEye />}
                     </div>
                 }
             </div>
