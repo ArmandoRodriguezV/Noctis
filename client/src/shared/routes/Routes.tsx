@@ -20,7 +20,9 @@ function RootLayout() {
 export class Router {
     static LOGIN = "/";
     static REGISTER = "/register";
-    static HOME = "/home"
+    static HOME = "/home";
+    static PROJECT = "/project";
+    static PROFILE = "/profile";
 
     static router = createBrowserRouter([
         {

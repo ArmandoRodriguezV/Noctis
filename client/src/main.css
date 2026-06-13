@@ -34,3 +34,7 @@ a {
   border: 1px solid #505050;
   background: linear-gradient(31deg, #141414 50%, #282828 100%);
 }
+
+.separator {
+  margin: 5px;
+}

@@ -15,7 +15,8 @@ export default function useLoginUser() {
         try {
             const res = await loginUserUc.exec(email, password);
             pushNotification(res as ApiResponse<void>);
-            nav(Router.HOME);
+            if (res.status === 200)
+                nav(Router.HOME);
         } catch(err){
             pushNotification(err as ApiResponse<void>);
         } finally {

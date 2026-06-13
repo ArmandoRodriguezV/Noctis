@@ -5,6 +5,7 @@
     width: calc(25% - 40px);
     height: calc(100% - 40px);
     z-index: 1000;
+    pointer-events: none;
     padding: 20px;
     display: flex;
     align-items: center;
