@@ -27,7 +27,7 @@ export class UserController {
             const { email, password } = req.body;
             const session = await this.loginUserUc.exec(email, password);
 
-            if (!session) return res.status(401).json(allResponses.warning("Credenciales invalidas", 401))
+            if (!session) return res.status(401).json(allResponses.warning("¡Ups, credenciales invalidas! Checa tu usuario o contraseña", 401))
 
             res.status(200).json(allResponses.success(`Bienvenido!`, session));
         } catch (err) {

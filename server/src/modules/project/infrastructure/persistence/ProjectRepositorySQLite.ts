@@ -1,6 +1,7 @@
 import type { ProjectRepository } from "../../domain/repositories/ProjectRepository.js";
 import { getDB } from "../../../../configs/db.js";
 import type { Project } from "../../domain/entities/Project.js";
+import type { Member } from "../../domain/entities/Member.js";
 
 export class ProjectRepositorySQLite implements ProjectRepository {
 
@@ -21,7 +22,7 @@ export class ProjectRepositorySQLite implements ProjectRepository {
         );
         await db.run(
             `INSERT INTO member (user, project, access) VALUES (?, ?, ?)`,
-            [owner, project?.id, "ADMIN"]
+            [owner, project?.id, 1]
         )
     }
 
@@ -31,7 +32,7 @@ export class ProjectRepositorySQLite implements ProjectRepository {
         await db.run(`DELETE FROM project WHERE id = ?`, [id]);
     }
 
-    async editProject(id: number, field: string, newData: string): Promise<void> {
+    async editProject(id: number, field: string, newData: any): Promise<void> {
         const db = getDB();
 
         const allowedColumns = ["name", "description", "isArchiver"];

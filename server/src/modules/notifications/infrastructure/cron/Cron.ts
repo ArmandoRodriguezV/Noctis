@@ -2,7 +2,7 @@ import cron from 'node-cron';
 import type { SendDeeadLineNotificationUc } from "../../application/SendDeeadLineNotificationUc.js";
 import { wsClientsService } from '../../../user/infrastructure/di/UserDI.js';
 import type { GetUserByIdUc } from '../../../user/application/GetUserByIdUc.js';
-import type { FindProjectByIdUc } from '../../../project/application/FindProjectByIdUc.js';
+import type { FindProjectByIdUc } from '../../../project/application/project/FindProjectByIdUc.js';
 import type { AddNotificationInTaskUc } from '../../application/AddNotificationInTaskUc.js';
 import { sendEmail } from '../../../../shared/mail/mailer.js';
 

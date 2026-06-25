@@ -1,0 +1,40 @@
+.Create {
+    width: 30%;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+.Create .description-area {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+textarea {
+    width: calc(100% - 20px);
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    outline: none;
+    padding: 10px;
+    flex-direction: column;
+    resize: none;
+    background: #25252588;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #434343;
+    transition: .2s;
+}
+
+.Create .description-area .Label {
+    font-size: 0.8rem;
+    color: white;
+}

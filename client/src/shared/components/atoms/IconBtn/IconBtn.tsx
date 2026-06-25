@@ -9,7 +9,7 @@ interface IIconBtn {
 
 export default function IconBtn(props: IIconBtn) {
     return (
-        <div onClick={props.onClick} className={`IconBtn ${props.customClass}`}>
+        <div onClick={props.onClick} className={`${props.customClass} IconBtn`}>
             {props.icon}
         </div>
     );

@@ -10,6 +10,7 @@ interface IInput {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     register?: UseFormRegisterReturn;
     error?: any;
+    customClass?: string;
 }
 
 export default function Input(props: IInput) {
@@ -25,13 +26,14 @@ export default function Input(props: IInput) {
     const existError = props.error;
 
     return (
-        <div className='Input'>
+        <div className={`Input ${props.customClass}`}>
             {props.label && <p className='Label'>{props.label}</p>}
             <div className='content' style={{borderColor: existError && "#ff4940"}}>
                 <input
                     { ...props.register }
                     style={{ width: !isPassword ? "100%" : "calc(100% - 50px)" }}
                     type={intType}
+                    onChange={props.onChange}
                     placeholder={props.placeholder}
                 />
                 {

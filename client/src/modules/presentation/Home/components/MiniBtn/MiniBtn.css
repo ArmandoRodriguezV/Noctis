@@ -1,0 +1,24 @@
+.MiniBtn {
+    display: flex;
+    height: 20px;
+    padding: 5px 10px;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #505050;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+    background: #202020;
+    transition: .3s;
+}
+
+.MiniBtn p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MiniBtn:hover {
+    background: #303030;
+}

@@ -1,4 +1,4 @@
-import { FindProjectByIdUc } from "../../../project/application/FindProjectByIdUc.js";
+import { FindProjectByIdUc } from "../../../project/application/project/FindProjectByIdUc.js";
 import { ProjectRepositorySQLite } from "../../../project/infrastructure/persistence/ProjectRepositorySQLite.js";
 import { GetUserByIdUc } from "../../../user/application/GetUserByIdUc.js";
 import { UserRepositorySQLite } from "../../../user/infrastructure/persistence/UserRepositorySQLite.js";

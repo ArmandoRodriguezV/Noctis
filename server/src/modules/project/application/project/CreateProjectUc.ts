@@ -1,4 +1,4 @@
-import type { ProjectRepository } from "../domain/repositories/ProjectRepository.js";
+import type { ProjectRepository } from "../../domain/repositories/ProjectRepository.js";
 
 export class CreateProjectUc {
     constructor(

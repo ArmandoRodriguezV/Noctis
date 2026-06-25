@@ -13,4 +13,12 @@ export class ProjectApiRepository implements ProjectRepository {
         }
     }
 
+    async deleteProject(id: number): Promise<ApiResponse<void>> {
+           try {
+            const res = await api.delete<ApiResponse<void>>(`/project/delete?id=${id}`);
+            return res.data;
+        } catch (err) {
+            return err as ApiResponse<any>;
+        }
+    }
 }

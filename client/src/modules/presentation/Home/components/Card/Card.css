@@ -1,0 +1,79 @@
+.Card {
+    position: relative;
+    width: calc(100% - 30px);
+    height: calc(100% - 32px);
+    padding: 15px;
+    gap: 5px;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    transition: .3s;
+
+    * {
+        z-index: 10;
+    }
+}
+
+.Card:hover {
+    border-color: #5275ff;
+    .back-icon {
+        color: #262b3f;
+    }
+}
+
+.Card .back-icon {
+    position: absolute;
+    height: 80%;
+    overflow: hidden;
+    color: #202020;
+    z-index: 1;
+    font-size: 400px;
+    bottom: 0;
+    transition: .3s;
+}
+
+.Card .head-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Card .head-card .info {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    * {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    span {
+        font-size: 1.25rem;
+    }
+}
+
+.Card .content-data {
+    height: 80%;
+}
+
+.Card .options {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+.Card .options .del-btn {
+    background: #5f1f1f;
+    border-color: #bb4b4b;
+}
+
+.Card .options .del-btn:hover {
+    background: #bb4b4b;
+}

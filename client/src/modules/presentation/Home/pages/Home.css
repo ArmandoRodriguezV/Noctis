@@ -1,3 +1,69 @@
 .Home .content {
     width: calc(100% - 60px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.Home .content .projects {
+    width: calc(95% - 20px);
+    height: 40%;
+    padding: 10px;
+    mask-image: linear-gradient(-90deg, transparent 0%, black 100px);
+}
+
+.Home .content .projects .track {
+    width: 100%;
+    height: calc(96% - 50px);
+    display: grid;
+    overflow: auto;
+    grid-auto-flow: column;
+    grid-auto-columns: 600px;
+    align-items: center;
+    gap: 20px;
+    white-space: nowrap;
+    margin: 10px 0;
+}
+
+.Home .content .projects .searcher {
+    width: 550px;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #404040;
+    background: linear-gradient(90deg, #1a1a1a 0%, #1d1d1d 100%);
+    color: white;
+    border-radius: 40px;
+}
+
+.Home .content .second-panel {
+    width: calc(95% - 20px);
+    height: 40%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.Home .content .create {
+    cursor: pointer;
+    height: calc(100% - 2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    border-radius: 10px;
+    border: 1px solid #434343;
+    transition: .3s;
+}
+
+.content .create:hover {
+    border-color: #5275ff;
+    color: #5275ff;
 }

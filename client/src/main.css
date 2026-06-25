@@ -10,12 +10,28 @@
 }
 
 /* Text styles */
-.title {font-size: 3rem;}
-.subtitle {font-size: 2rem;}
-.sub1 {font-size: 0.8rem;}
-.sub2 {font-size: 0.6rem;}
-a { 
-  color: #93b1ff; 
+.title {
+  font-size: 3rem;
+}
+
+.subtitle {
+  font-size: 2rem;
+}
+
+.head1 {
+  font-size: 1.5rem;
+}
+
+.sub1 {
+  font-size: 0.8rem;
+}
+
+.sub2 {
+  font-size: 0.6rem;
+}
+
+a {
+  color: #93b1ff;
 }
 
 /* Page desing */
@@ -37,4 +53,35 @@ a {
 
 .separator {
   margin: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #363636;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f3f;
+}
+
+/* Button positions */
+.close-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #9d9d9d;
+  background: none !important;
+  border: none !important;
+  padding: 4px !important;
 }

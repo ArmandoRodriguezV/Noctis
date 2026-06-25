@@ -1,8 +1,8 @@
 .Over {
     position: absolute;
+    z-index: 999999;
     top: 0;
     left: 0;
-    z-index: 100;
     background: #10101088;
     animation: spawn .5s ease-in-out forwards;
 }

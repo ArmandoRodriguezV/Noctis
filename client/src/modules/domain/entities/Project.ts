@@ -4,5 +4,6 @@ export interface Project {
     description: string;
     isArchiver: number;
     owner: number;
-    createdAd: number;
+    createdAt: number;
+    access: number;
 }
