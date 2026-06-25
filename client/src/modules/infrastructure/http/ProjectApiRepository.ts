@@ -14,8 +14,26 @@ export class ProjectApiRepository implements ProjectRepository {
     }
 
     async deleteProject(id: number): Promise<ApiResponse<void>> {
-           try {
+        try {
             const res = await api.delete<ApiResponse<void>>(`/project/delete?id=${id}`);
+            return res.data;
+        } catch (err) {
+            return err as ApiResponse<any>;
+        }
+    }
+
+    async createProject(name: string, description: string): Promise<ApiResponse<void>> {
+        try {
+            const res = await api.post<ApiResponse<void>>(`/project/create`, { name, description });
+            return res.data;
+        } catch (err) {
+            return err as ApiResponse<any>;
+        }
+    }
+
+    async archiveProject(id: number): Promise<ApiResponse<void>> {
+        try {
+            const res = await api.patch<ApiResponse<void>>(`/project/archive?id=${id}`);
             return res.data;
         } catch (err) {
             return err as ApiResponse<any>;

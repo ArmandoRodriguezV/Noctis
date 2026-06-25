@@ -5,15 +5,18 @@ import { MdOutlineUnarchive } from "react-icons/md";
 import type { Project } from '../../../../domain/entities/Project';
 import MiniBtn from '../MiniBtn/MiniBtn';
 import { timeAgo } from '../../../../../shared/utils/time';
+import useProjectsHome from '../../hooks/useProjectsHome';
 
 interface ICard {
     project: Project;
     onDelete: (project: Project) => void;
+    onUpdate: () => void;
 }
 
 export default function Card(props: ICard) {
     const isArchive: boolean = props.project.isArchiver == 1;
     const accessLevel: number = props.project.access;
+    const { archiveProject } = useProjectsHome();
 
     return (
         <div className='Card container-1'>
@@ -34,7 +37,7 @@ export default function Card(props: ICard) {
                     <MiniBtn customClass='del-btn' icon={<PiTrash />} onClick={() => props.onDelete(props.project)} text='Borrar' />
                     <MiniBtn icon={
                         isArchive ? <MdOutlineUnarchive /> : <PiArchive />
-                    } onClick={() => {}} text={isArchive ? 'Desarchivar' : 'Archivar'} />
+                    } onClick={async () => { await archiveProject(props.project.id, props.onUpdate) }} text={isArchive ? 'Desarchivar' : 'Archivar'} />
                 </div>
             }
         </div>

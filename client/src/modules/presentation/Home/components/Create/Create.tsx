@@ -4,19 +4,25 @@ import Input from '../../../../../shared/components/atoms/Input/Input';
 import IconBtn from '../../../../../shared/components/atoms/IconBtn/IconBtn';
 import FormBtn from '../../../../../shared/components/atoms/FormBtn/FormBtn';
 import { useState } from 'react';
+import useProjectsHome from '../../hooks/useProjectsHome';
 
 interface ICreate {
     onClose: () => void;
+    onUpdate: () => void;
 }
 
 export default function Create(props: ICreate) {
+    const { createProject } = useProjectsHome();
     const [name, setName] = useState<string>();
     const [desc, setDesc] = useState<string>();
     const [error, setError] = useState<string | null>();
 
-    const click = () => {
-        if (!name || !desc) return setError("Faltan campos");
+    const click = async () => {
+        if (!name) return setError("Faltan campos");
         setError(null);
+
+        const d = desc || "";
+        await createProject(name, d, props.onUpdate, props.onClose);
     }
 
     return (
@@ -28,9 +34,8 @@ export default function Create(props: ICreate) {
                 <textarea
                     className='area'
                     onChange={(e) => setDesc(e.target.value)}
-                    style={{ height: "200px", borderColor: error ? "#ff4040" : "" }}
+                    style={{ minHeight: "200px" }}
                 />
-                {error && <p className='Label' style={{ color: "#ff4040" }}>{error}</p>}
             </div>
             <FormBtn text='Crear' type='button' onClick={click} />
         </form>

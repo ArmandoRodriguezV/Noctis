@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Project } from "../../../domain/entities/Project";
-import { deleteProjectUc, getMyProjectsUc } from "../../../infrastructure/di/ProjectDi";
+import { archiveProjectUc, createProjectUc, deleteProjectUc, getMyProjectsUc } from "../../../infrastructure/di/ProjectDi";
 import { useNotification } from "../../../../shared/context/NotificationCtx";
 import type { ApiResponse } from "../../../../shared/routes/Response";
 
@@ -51,9 +51,32 @@ export default function useProjectsHome() {
         }
     }
 
-    const onUpdate = () => {
-        setUpdate(!update)
+    const createProject = async (name: string, description: string, upd: () => void, cls: () => void) => {
+        try {
+            const res = await createProjectUc.exec(name, description);
+            pushNotification(res as ApiResponse<void>);
+            upd();
+            setTimeout(() => {
+                cls();
+            }, 500);
+        } catch (err) {
+            pushNotification(err as ApiResponse<void>);
+        }
     }
 
-    return { projects: filteredProjects, onFind, onUpdate, deleteProject };
+    const archiveProject = async (id: number, upd: () => void) => {
+        try {
+            const res = await archiveProjectUc.exec(id);
+            pushNotification(res as ApiResponse<void>);
+            upd();
+        } catch (err) {
+            pushNotification(err as ApiResponse<void>);
+        }
+    }
+
+    const onUpdate = () => {
+        setUpdate(!update);
+    }
+
+    return { projects: filteredProjects, onFind, onUpdate, deleteProject, createProject, archiveProject };
 }

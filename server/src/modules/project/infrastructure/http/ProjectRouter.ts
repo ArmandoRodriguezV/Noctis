@@ -7,5 +7,6 @@ const projectRouter = Router();
 projectRouter.get("/", authMiddleware.handle.bind(authMiddleware), controller.findProjects);
 projectRouter.post("/create", authMiddleware.handle.bind(authMiddleware), controller.createProject);
 projectRouter.delete("/delete", authMiddleware.handle.bind(authMiddleware), controller.deleteProject);
+projectRouter.patch("/archive", authMiddleware.handle.bind(authMiddleware), controller.archiveProject);
 
 export default projectRouter;

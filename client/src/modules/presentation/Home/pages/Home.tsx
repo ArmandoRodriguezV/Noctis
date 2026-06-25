@@ -16,7 +16,7 @@ export default function Home() {
 
     return (
         <>
-            {openCreate && <Over content={<Create onClose={() => setOpenCreate(false)}/>} />}
+            {openCreate && <Over content={<Create onUpdate={onUpdate} onClose={() => setOpenCreate(false)}/>} />}
             {openPanel && <Over content={<DelForm project={openPanel} onUpdate={onUpdate} onClose={() => setOpenPanel(null)} />} />}
             <div className='Home page'>
                 <Sidebar />
@@ -31,6 +31,7 @@ export default function Home() {
                             {
                                 projects.length > 0 ? projects?.map(p => (
                                     <Card
+                                        onUpdate={onUpdate}
                                         project={p}
                                         key={p.id}
                                         onDelete={(p) => { setOpenPanel(p) }}

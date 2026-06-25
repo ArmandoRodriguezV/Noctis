@@ -3,18 +3,16 @@ import type { CreateProjectUc } from "../../application/project/CreateProjectUc.
 import type { DeleteProjectUc } from "../../application/project/DeleteProjectUc.js";
 import { allResponses } from "../../../../shared/Responses.js";
 import type { FindProjectsUc } from "../../application/project/FindProjectsUc.js";
-import type { EditProjectUc } from "../../application/project/EditProjectUc.js";
-import type { FindProjectByIdUc } from "../../application/project/FindProjectByIdUc.js";
 import type { FindMemberUc } from "../../application/member/FindMemberUc.js";
+import type { ArchiverProjectUc } from "../../application/project/ArchiveProjectUc.js";
 
 export class ProjectController {
     constructor(
         private findProjectsUc: FindProjectsUc,
         private createProjectUc: CreateProjectUc,
         private deleteProjectUc: DeleteProjectUc,
-        private editProjectUc: EditProjectUc,
-        private findProjectById: FindProjectByIdUc,
-        private findMemberUc: FindMemberUc
+        private findMemberUc: FindMemberUc,
+        private archiveProjectUc: ArchiverProjectUc
     ) { }
 
     findProjects = async (req: Request, res: Response) => {
@@ -59,6 +57,17 @@ export class ProjectController {
             const {id} = req.query;
             await this.deleteProjectUc.exec(Number(id));
             res.status(200).json(allResponses.success("Proyecto borrado"));
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(allResponses.error((err as Error).message));
+        }
+    }
+
+    archiveProject = async (req: Request, res: Response) => {
+        try {
+            const {id} = req.query;
+            const resp = await this.archiveProjectUc.exec(Number(id)); 
+            res.status(200).json(allResponses.success(resp));
         } catch (err) {
             console.log(err);
             res.status(500).json(allResponses.error((err as Error).message));
